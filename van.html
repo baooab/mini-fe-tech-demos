@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello VanJS!</title>
+</head>
+
+<body>
+  <!-- See: https://vanjs.org/start -->
+
+  <script type="importmap">
+    {
+      "imports": {
+        "vanjs-core": "https://cdn.jsdelivr.net/gh/vanjs-org/van/public/van-1.1.3.min.js"
+      }
+    }
+  </script>
+
+  <div id="root"></div>
+
+  <script type="module">
+    import van from "vanjs-core"
+    const {a, div, li, p, ul} = van.tags
+
+    // Reusable components can be just pure vanilla JavaScript functions.
+    // Here we capitalize the first letter to follow React conventions.
+    const Hello = () => div(
+      p("👋Hello"),
+      ul(
+        li("🗺️World"),
+        li(a({href: "https://vanjs.org/"}, "🍦VanJS")),
+      ),
+    )
+
+    van.add(document.getElementById('root'), Hello())
+    // Alternatively, you can write:
+    // document.body.appendChild(Hello())
+  </script>
+
+</body>
+
+</html>

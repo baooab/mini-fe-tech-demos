@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello Preact!</title>
+</head>
+
+<body>
+  <!-- See: https://preactjs.com/guide/v10/getting-started -->
+
+
+  <script type="importmap">
+    {
+      "imports": {
+        "preact": "https://esm.sh/preact",
+        "htm": "https://esm.sh/htm"
+      }
+    }
+  </script>
+
+  <div id="root"></div>
+
+
+  <script type="module">
+    import { h, Component, render } from 'preact'
+    import htm from 'htm'
+
+    // Initialize htm with Preact
+    const html = htm.bind(h);
+
+    function App(props) {
+      return html`<h1>Hello ${props.name}!</h1>`;
+    }
+
+    render(html`<${App} name="World" />`, document.getElementById('root'));
+  </script>
+
+</body>
+
+</html>
